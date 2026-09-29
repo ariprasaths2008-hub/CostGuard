@@ -1,0 +1,86 @@
+{
+  "format_version": "1.2",
+  "terraform_version": "1.5.7",
+  "resource_changes": [
+    {
+      "address": "azurerm_resource_group.rg_core",
+      "type": "azurerm_resource_group",
+      "change": { "actions": ["create"], "after": { "location": "eastus", "name": "rg-core" } }
+    },
+    {
+      "address": "azurerm_resource_group.rg_sec",
+      "type": "azurerm_resource_group",
+      "change": { "actions": ["create"], "after": { "location": "eastus", "name": "rg-sec" } }
+    },
+    {
+      "address": "azurerm_virtual_network.vnet_main",
+      "type": "azurerm_virtual_network",
+      "change": { "actions": ["create"], "after": { "address_space": ["10.0.0.0/16"], "location": "eastus", "name": "vnet-main" } }
+    },
+    {
+      "address": "azurerm_virtual_network.vnet_spoke",
+      "type": "azurerm_virtual_network",
+      "change": { "actions": ["update"], "before": { "address_space": ["10.1.0.0/16"] }, "after": { "address_space": ["10.1.0.0/16", "10.2.0.0/16"] } }
+    },
+    {
+      "address": "azurerm_subnet.sub_frontend",
+      "type": "azurerm_subnet",
+      "change": { "actions": ["create"], "after": { "address_prefixes": ["10.0.1.0/24"], "name": "snet-web" } }
+    },
+    {
+      "address": "azurerm_subnet.sub_backend",
+      "type": "azurerm_subnet",
+      "change": { "actions": ["create"], "after": { "address_prefixes": ["10.0.2.0/24"], "name": "snet-app" } }
+    },
+    {
+      "address": "azurerm_subnet.sub_db",
+      "type": "azurerm_subnet",
+      "change": { "actions": ["delete"], "before": { "address_prefixes": ["10.0.3.0/24"], "name": "snet-db" } }
+    },
+    {
+      "address": "azurerm_network_security_group.nsg_web",
+      "type": "azurerm_network_security_group",
+      "change": { "actions": ["create"], "after": { "location": "eastus", "name": "nsg-web" } }
+    },
+    {
+      "address": "azurerm_network_security_group.nsg_app",
+      "type": "azurerm_network_security_group",
+      "change": { "actions": ["update"], "before": { "location": "eastus" }, "after": { "location": "eastus", "tags": { "Audited": "true" } } }
+    },
+    {
+      "address": "azurerm_network_security_rule.allow_https",
+      "type": "azurerm_network_security_rule",
+      "change": { "actions": ["create"], "after": { "access": "Allow", "destination_port_range": "443" } }
+    },
+    {
+      "address": "azurerm_network_security_rule.allow_ssh",
+      "type": "azurerm_network_security_rule",
+      "change": { "actions": ["create"], "after": { "access": "Allow", "destination_port_range": "22" } }
+    },
+    {
+      "address": "azurerm_route_table.rt_default",
+      "type": "azurerm_route_table",
+      "change": { "actions": ["create"], "after": { "location": "eastus", "name": "rt-default" } }
+    },
+    {
+      "address": "azurerm_subnet_route_table_association.assoc_web",
+      "type": "azurerm_subnet_route_table_association",
+      "change": { "actions": ["create"], "after": { "route_table_id": "rt-123", "subnet_id": "sub-123" } }
+    },
+    {
+      "address": "azurerm_network_interface.nic_web",
+      "type": "azurerm_network_interface",
+      "change": { "actions": ["create"], "after": { "location": "eastus", "name": "nic-web" } }
+    },
+    {
+      "address": "azurerm_public_ip.pip_web",
+      "type": "azurerm_public_ip",
+      "change": { "actions": ["no-op"], "before": { "allocation_method": "Static" }, "after": { "allocation_method": "Static" } }
+    },
+    {
+      "address": "azurerm_subnet_network_security_group_association.assoc_nsg",
+      "type": "azurerm_subnet_network_security_group_association",
+      "change": { "actions": ["create"], "after": { "network_security_group_id": "nsg-1", "subnet_id": "sub-1" } }
+    }
+  ]
+}

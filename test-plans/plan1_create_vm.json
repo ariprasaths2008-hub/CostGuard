@@ -1,0 +1,98 @@
+{
+  "format_version": "1.2",
+  "terraform_version": "1.5.7",
+  "planned_values": {
+    "root_module": {
+      "resources": [
+        {
+          "address": "azurerm_linux_virtual_machine.web_server",
+          "mode": "managed",
+          "type": "azurerm_linux_virtual_machine",
+          "name": "web_server",
+          "provider_name": "registry.terraform.io/hashicorp/azurerm",
+          "schema_version": 0,
+          "values": {
+            "admin_username": "adminuser",
+            "location": "eastus",
+            "name": "web-server-vm",
+            "resource_group_name": "rg-costguard-prod",
+            "size": "Standard_B1s"
+          }
+        },
+        {
+          "address": "azurerm_managed_disk.app_disk",
+          "mode": "managed",
+          "type": "azurerm_managed_disk",
+          "name": "app_disk",
+          "provider_name": "registry.terraform.io/hashicorp/azurerm",
+          "schema_version": 0,
+          "values": {
+            "create_option": "Empty",
+            "disk_size_gb": 32,
+            "location": "eastus",
+            "name": "app-disk-01",
+            "resource_group_name": "rg-costguard-prod",
+            "storage_account_type": "Standard_LRS"
+          }
+        }
+      ]
+    }
+  },
+  "resource_changes": [
+    {
+      "address": "azurerm_linux_virtual_machine.web_server",
+      "mode": "managed",
+      "type": "azurerm_linux_virtual_machine",
+      "name": "web_server",
+      "provider_name": "registry.terraform.io/hashicorp/azurerm",
+      "change": {
+        "actions": [
+          "create"
+        ],
+        "before": null,
+        "after": {
+          "admin_username": "adminuser",
+          "location": "eastus",
+          "name": "web-server-vm",
+          "resource_group_name": "rg-costguard-prod",
+          "size": "Standard_B1s",
+          "tags": {
+            "Environment": "Production",
+            "Owner": "DevOps"
+          }
+        },
+        "after_unknown": {
+          "id": true
+        },
+        "before_sensitive": false,
+        "after_sensitive": {}
+      }
+    },
+    {
+      "address": "azurerm_managed_disk.app_disk",
+      "mode": "managed",
+      "type": "azurerm_managed_disk",
+      "name": "app_disk",
+      "provider_name": "registry.terraform.io/hashicorp/azurerm",
+      "change": {
+        "actions": [
+          "create"
+        ],
+        "before": null,
+        "after": {
+          "create_option": "Empty",
+          "disk_size_gb": 32,
+          "location": "eastus",
+          "name": "app-disk-01",
+          "resource_group_name": "rg-costguard-prod",
+          "storage_account_type": "Standard_LRS"
+        },
+        "after_unknown": {
+          "id": true
+        },
+        "before_sensitive": false,
+        "after_sensitive": {}
+      }
+    }
+  ]
+}

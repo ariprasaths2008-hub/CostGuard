@@ -1,0 +1,42 @@
+{
+  "format_version": "1.2",
+  "terraform_version": "1.5.7",
+  "resource_changes": [
+    {
+      "address": "azurerm_linux_virtual_machine.app_server",
+      "mode": "managed",
+      "type": "azurerm_linux_virtual_machine",
+      "name": "app_server",
+      "provider_name": "registry.terraform.io/hashicorp/azurerm",
+      "change": {
+        "actions": [
+          "update"
+        ],
+        "before": {
+          "admin_username": "adminuser",
+          "location": "eastus",
+          "name": "app-server-vm",
+          "resource_group_name": "rg-costguard-prod",
+          "size": "Standard_B2s",
+          "tags": {
+            "Tier": "Application"
+          }
+        },
+        "after": {
+          "admin_username": "adminuser",
+          "location": "eastus",
+          "name": "app-server-vm",
+          "resource_group_name": "rg-costguard-prod",
+          "size": "Standard_D2s_v3",
+          "tags": {
+            "Tier": "Application",
+            "Upgraded": "True"
+          }
+        },
+        "after_unknown": {},
+        "before_sensitive": false,
+        "after_sensitive": {}
+      }
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "format_version": "1.2",
+  "terraform_version": "1.5.7",
+  "resource_changes": [
+    {
+      "address": "azurerm_linux_virtual_machine.old_vm",
+      "mode": "managed",
+      "type": "azurerm_linux_virtual_machine",
+      "name": "old_vm",
+      "provider_name": "registry.terraform.io/hashicorp/azurerm",
+      "change": {
+        "actions": [
+          "delete"
+        ],
+        "before": {
+          "admin_username": "adminuser",
+          "location": "eastus",
+          "name": "decommission-vm",
+          "resource_group_name": "rg-costguard-prod",
+          "size": "Standard_B1s",
+          "tags": {
+            "Environment": "Legacy"
+          }
+        },
+        "after": null,
+        "after_unknown": {},
+        "before_sensitive": false,
+        "after_sensitive": {}
+      }
+    }
+  ]
+}
